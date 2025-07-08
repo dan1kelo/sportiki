@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+        
+    <title>Дневник качка</title>
+</head>
+<body>
+<header class="d-flex flex-wrap align-items-center justify-content-between py-3 mb-4 border-bottom">
+  <!-- Логотип -->
+  <div class="col-md-3 mb-2 mb-md-0">
+    <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+      <svg class="bi" width="40" height="32" role="img" aria-label="Начальная загрузка">
+        <use xlink:href="#bootstrap"></use>
+      </svg>
+    </a>
+  </div>
+
+  <!-- Навигация -->
+  <nav class="nav col-12 col-md-auto justify-content-center">
+    <ul class="nav-list list-unstyled d-flex gap-3 mb-2 mb-md-0">
+      <li><a href="#" class="nav-link px-2 link-secondary">Дом</a></li>
+      <li><a href="{% url 'calendar' %}" class="nav-link px-2">Календарь</a></li>
+      <li><a href="#" class="nav-link px-2"></a></li>
+      <li><a href="#" class="nav-link px-2"></a></li>
+      <li><a href="#" class="nav-link px-2"></a></li>
+    </ul>
+  </nav>
+
+  <!-- Авторизация -->
+  <div class="col-md-3 text-end">
+    <button type="button" class="btn btn-outline-primary me-2">Профиль</button>
+    <button type="button" class="btn btn-outline-primary me-2">Настройки</button>
+  </div>
+</header>
+
+
+</body>
