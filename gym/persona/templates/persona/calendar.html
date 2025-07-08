@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{%block content %}
+<!DOCTYPE html>
+<html lang="ru" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <title>Календарь тренировок</title>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex items-center justify-center p-6">
+
+  <div x-data="workoutCalendar()" class="w-full max-w-3xl">
+    <h1 class="text-3xl font-bold mb-6 text-center">Календарь тренировок</h1>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+      <template x-for="(day, index) in days" :key="index">
+        <div class="bg-gray-800 p-4 rounded-xl shadow-md">
+          <h2 class="text-lg font-semibold mb-2" x-text="day.name"></h2>
+          <select
+            x-model="day.workout"
+            class="w-full mt-1 rounded-md bg-gray-700 text-white border border-gray-600 p-2"
+          >
+            <option value="">Выбери тренировку</option>
+            <option>Руки</option>
+            <option>Ноги</option>
+            <option>Спина</option>
+            <option>Грудь</option>
+            <option>Кардио</option>
+            <option>Отдых</option>
+          </select>
+          <p class="mt-2 text-sm text-gray-400" x-show="day.workout">
+            План: <span x-text="day.workout"></span>
+          </p>
+        </div>
+      </template>
+    </div>
+  </div>
+
+  <script>
+    function workoutCalendar() {
+      return {
+        days: [
+          { name: 'Понедельник', workout: '' },
+          { name: 'Вторник', workout: '' },
+          { name: 'Среда', workout: '' },
+          { name: 'Четверг', workout: '' },
+          { name: 'Пятница', workout: '' },
+          { name: 'Суббота', workout: '' },
+          { name: 'Воскресенье', workout: '' },
+        ],
+      }
+    }
+  </script>
+</body>
+</html>
+
+{%endblock%}
